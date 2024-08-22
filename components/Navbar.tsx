@@ -1,23 +1,30 @@
 import { useNextContext } from "@/Context/appContext";
 import { getThemeStyles } from "@/Global/themesStyle";
 import { useSpring, animated } from "@react-spring/web";
+import Hamburger from "hamburger-react";
 import React, { useState } from "react";
+import { FaHome, FaThLarge, FaBoxes, FaPhoneAlt, FaHeart } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
 
     const { theme, setTheme } = useNextContext()
+    const [isOpen, setOpen] = useState(false)
     const style = getThemeStyles(theme)
     
     const toggleTheme = () => {
         
         setTheme(prev => !prev);
     };
+    
 
     return (
         <div className="flex flex-wrap ">
+            
             <section className="relative mx-auto">
+            
                 {/* navbar */}
                 <nav className={`flex ${style.backgroundColor} justify-between  ${style.textColor} w-screen`}>
+            
                 <div className="px-5 xl:px-12 py-6 flex w-full items-center">
                     <a className="text-3xl font-bold font-heading" href="#">
                     {/* <img className="h-9" src="logo.png" alt="logo" /> */}
@@ -25,27 +32,32 @@ const Navbar: React.FC = () => {
                     </a>
                     {/* Nav Links */}
                     <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                        <li>
-                            <a className="hover:text-gray-200" href="#">
-                            Home
+                        <li className="group">
+                            <a className={`relative hover:${style.textColor}`} href="#">
+                                Home
+                                <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
                         </li>
-                        <li>
-                            <a className="hover:text-gray-200" href="#">
-                            Category
+                        <li className="group">
+                            <a className={`relative hover:${style.textColor}`} href="#">
+                                Category
+                                <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
                         </li>
-                        <li>
-                            <a className="hover:text-gray-200" href="#">
-                            Collections
+                        <li className="group">
+                            <a className={`relative hover:${style.textColor}`} href="#">
+                                Collections
+                                <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
                         </li>
-                        <li>
-                            <a className="hover:text-gray-200" href="#">
-                            Contact Us
+                        <li className="group">
+                            <a className={`relative hover:${style.textColor}`} href="#">
+                                Contact Us
+                                <span className={"block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"}></span>
                             </a>
                         </li>
                     </ul>
+
                     {/* Header Icons */}
                     <div className="hidden xl:flex items-center space-x-5">
                         <a className="hover:text-gray-200" href="#">
@@ -164,33 +176,71 @@ const Navbar: React.FC = () => {
                         </button>
                     }
                 </div>
+
                 <div>
                     {
 
                     }
                 </div>
+                
+                <div className="xl:hidden flex mr-6 items-center">
 
-                <a className="navbar-burger self-center mr-12 xl:hidden" href="#">
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 hover:text-gray-200"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                    />
-                    </svg>
-                </a>
+                    <Hamburger size={24} toggled={isOpen} toggle={setOpen} />
+                </div>
+
                 </nav>
             </section>
+
+            <div className={`${style.backgroundColor} ${style.textColor} w-full`}>
+                {
+                    isOpen && <MobileNav open={isOpen}/>
+                }
+            </div>
         </div>
     );
 };
 
+interface MobileNavProps {
+    open: boolean
+}
 
+const MobileNav: React.FC<MobileNavProps> = ({ open }) => {
+    
+    const navAnimation = useSpring({
+        transform: open ? 'translateX(0)' : 'translateX(-100%)',
+        opacity: open ? 1 : 0,
+        config: { tension: 120, friction: 14 }, // Adjusted for a smoother and more natural animation
+    });
+  
+    const { theme } = useNextContext();
+    const style = getThemeStyles(theme);
+  
+    const iconHover = 'transition-transform duration-300 group-hover:-translate-y-1';
+  
+    return (
+        <animated.ul
+            style={navAnimation}
+            className="xl:hidden w-full gap-y-6 text-center text-3xl flex flex-col justify-center mb-10 divide-gray-400 items-center px-4 mx-auto font-semibold font-heading space-y-4"
+        >
+            {[
+            { href: '#', icon: FaHome, text: 'Home' },
+            { href: '#', icon: FaThLarge, text: 'Category' },
+            { href: '#', icon: FaBoxes, text: 'Collections' },
+            { href: '#', icon: FaHeart, text: 'Favourites' },
+            { href: '#', icon: FaPhoneAlt, text: 'Contact Us' },
+            ].map(({ href, icon: Icon, text }, index) => (
+            <li className="w-full mt-4" key={index}>
+                <a
+                className={`flex rounded-full group items-center justify-center gap-2 py-2 w-full ${style.hoverOnNavItemsMobile}`}
+                href={href}
+                >
+                <Icon className={iconHover} />
+                {text}
+                </a>
+            </li>
+            ))}
+        </animated.ul>
+    );
+};
+  
 export default Navbar;
