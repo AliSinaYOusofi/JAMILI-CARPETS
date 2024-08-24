@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
 
     const { theme, setTheme } = useNextContext()
     const [isOpen, setOpen] = useState(false)
-    const style = getThemeStyles(theme)
+    const style = getThemeStyles()
     
     const toggleTheme = () => {
         
@@ -20,10 +20,10 @@ const Navbar: React.FC = () => {
     return (
         <div className="flex flex-wrap ">
             
-            <section className="relative mx-auto">
+        <section className="relative mx-auto">
             
                 {/* navbar */}
-                <nav className={`flex ${style.backgroundColor} justify-between  ${style.textColor} w-screen`}>
+                <nav className={`flex ${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}  justify-between  w-screen`}>
             
                 <div className="px-5 xl:px-12 py-6 flex w-full items-center">
                     <a className="text-3xl font-bold font-heading" href="#">
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                     {/* Nav Links */}
                     <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                         <li className="group">
-                            <a className={`relative hover:${style.textColor}`} href="#">
+                            <a className={`relative  hover:${style.textColor}`} href="#">
                                 Home
                                 <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
@@ -191,7 +191,7 @@ const Navbar: React.FC = () => {
                 </nav>
             </section>
 
-            <div className={`${style.backgroundColor} ${style.textColor} w-full`}>
+            <div className={` ${style.textColor} w-full`}>
                 {
                     isOpen && <MobileNav open={isOpen}/>
                 }
@@ -213,7 +213,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ open }) => {
     });
   
     const { theme } = useNextContext();
-    const style = getThemeStyles(theme);
+    const style = getThemeStyles();
   
     const iconHover = 'transition-transform duration-300 group-hover:-translate-y-1';
   

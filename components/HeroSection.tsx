@@ -11,21 +11,22 @@ interface HeroSectionProps {}
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
     const { theme } = useNextContext();
-    const style = getThemeStyles(theme);
+    const style = getThemeStyles();
 
     const [currentImage, setCurrentImage] = useState(heroSectionImageCarousel[0]);
 
     return (
         <div
-        className={` flex  items-center justify-center ${style.backgroundColor}`}
+        className={` flex  items-center justify-center ${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}
         >
         <div className="max-w-[85rem] mb-20 mt-10 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
             <div className="lg:col-span-3 text-center lg:text-left">
                 <h1
-                className={`block text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-7xl ${style.textColor}`}
+                    className={`block text-3xl font-extrabold sm:text-4xl md:text-5xl lg:text-7xl ${style.textColor}`}
                 >
-                <span className="">Luxurious</span>
+                    
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-red-600 to-green-600">Luxurious</span>
                 <span>&nbsp; hand-woven </span>
                 <span className="text-orange-500">&nbsp; carpets 🇦🇫</span>
                 </h1>

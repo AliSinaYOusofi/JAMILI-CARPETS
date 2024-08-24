@@ -6,24 +6,25 @@ import { FaMedal } from "react-icons/fa";
 import ProudDivDynamic from './ProudDivDynamic';
 import { useNextContext } from '@/Context/appContext';
 import { getThemeStyles } from '@/Global/themesStyle';
+import { FaM } from 'react-icons/fa6';
 
 export const proudPartDetails = [
     {
-        amount: 444,
+        amount: 20,
         description: "Experience",
-        icon: <RiEmotionHappyLine size={30}/>
+        icon: <FaMedal size={40}/>
     },
 
     {
         amount: 10000,
         description: "Carpets sold",
-        icon: <GoPackage size={30}/>
+        icon: <GoPackage size={40}/>
     },
 
     {
         amount: 40,
         description: "Happy clients",
-        icon: <FaMedal size={30}/>
+        icon: <RiEmotionHappyLine size={40}/>
     },
 
 ]
@@ -31,17 +32,15 @@ export const proudPartDetails = [
 const ProudPart: React.FC = () => {
 
     const {theme} = useNextContext()
-    const style = getThemeStyles(theme)
 
-    const flexCenter = " flex items-center justify-between"
+    const flexCenter = " flex flex-col md:flex-row lg:flex-rwo items-center justify-between"
     
     return (
-        <div className={`${style.backgroundColor} flex px-20 items-center  justify-between ${style.textColor}`}>
+        <div className={`flex flex-row md:fle-col  md:px-20 py-10 items-center   justify-between ${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
             
-            
-            <div className="flex items-center gap-x-10">
-                <IoIosFlower size={50}/>
-                <h1 className="text-[40px]"> We are proud Of </h1>
+            <div className="flex items-center gap-x-4 font-bold">
+                <IoIosFlower className="text-5xl" size={50}/>
+                <h1 className="text-pretty text-bold md:text-5xl text-5xl"> We are proud of </h1>
             </div>
             
             <div className={`${flexCenter}`}>
@@ -49,7 +48,7 @@ const ProudPart: React.FC = () => {
                 {
                     proudPartDetails.map( item => {
                         return (
-                            <div className="">
+                            <div key={item.amount} className="">
                                 <ProudDivDynamic
                                     amount={item.amount}
                                     description={item.description}
