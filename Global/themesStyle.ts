@@ -1,8 +1,13 @@
 // themeStyles.ts
 
-export const getThemeStyles = (theme: boolean) => {
+import { useNextContext } from "@/Context/appContext";
+
+export const getThemeStyles = () => {
+
+    const {theme} = useNextContext()
+    
     return {
-        backgroundColor: theme ? "bg-gray-100" : "bg-gray-900",
+        
         textColor: theme ? "text-black" : "text-white",
         hoverOnNavItemsMobile: theme
             ? "hover:text-gray-800 hover:bg-gray-300 transition duration-300 ease-in-out"

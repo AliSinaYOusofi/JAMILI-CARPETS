@@ -12,10 +12,10 @@ interface SocialMediaIcons {
 const SocialMediaIcons: React.FC<SocialMediaIcons> = () => {
 
     const { theme } = useNextContext()
-    const style = getThemeStyles(theme)
+    const style = getThemeStyles()
     const themeClasses = theme
-    ? 'hover:border-gray-100 transition-all transition hover:bg-gray-200 text-gray-900 hover:translate-y-2'
-    : 'hover:border-gray-700 transition-all transition hover:bg-gray-800 text-gray-100 hover:translate-y-2';
+    ? 'hover:border-gray-100 transition-all transition hover:bg-gray-200 text-gray-900 hover:-translate-y-2'
+    : 'hover:border-gray-700 transition-all transition hover:bg-gray-800 text-gray-100 hover:-translate-y-2';
 
     return (
         <>

@@ -53,18 +53,18 @@ const GoFullScreen: React.FC<GoFullScreenProps> = ({ imagePath, altText = "Image
 
     
     return (
-        <div className="relative flex flex-row md:flex-col  items-center justify-center">
+        <div className="relative flex flex-row md:flex-col items-center justify-center">
 
             {
                 heroSectionImageCarousel.map( (image) => {
                     return (
-                        <div className="flex ml-4 gap-4 cursor-pointer ">
+                        <div key={image.alt} className=" ml-4 gap-4  ">
                             <Image
                                 src={image.url}
                                 alt={image.alt}
                                 width={70}
                                 height={70}
-                                className='mt-4 h-20 w-20 md:h-30 md:w-30 rounded-md'
+                                className='mt-4 h-20 w-20 md:h-30 cursor-pointer md:w-30 rounded-md'
                                 onClick={() => setCurrentImage(image)}
                             />
                         </div>
