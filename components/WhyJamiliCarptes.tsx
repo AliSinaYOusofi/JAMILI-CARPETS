@@ -31,7 +31,7 @@ const WhyJamiliCarptes: React.FC = () => {
                 <FaLeaf size={40} className="text-green-500 mr-3" /> 
                 <span className="font-semibold">1. High Quality Materials:</span>
               </div>
-              <p className="pl-12">Our carpets are made from the finest materials, ensuring durability and luxury.</p>
+              <p className="pl-12 text-xl text-gray-300">Our carpets are made from the finest materials, ensuring durability and luxury.</p>
             </div>
 
             <div className="text-lg sm:text-xl md:text-2xl">
@@ -39,7 +39,7 @@ const WhyJamiliCarptes: React.FC = () => {
                 <FaHandHoldingHeart size={40} className="text-red-500 mr-3" />
                 <span className="font-semibold">2. Hand-Woven:</span>
               </div>
-              <p className="pl-12">Each carpet is meticulously hand-woven by skilled artisans.</p>
+              <p className="pl-12 text-xl text-gray-300">Each carpet is meticulously hand-woven by skilled artisans.</p>
             </div>
 
             <div className="text-lg sm:text-xl md:text-2xl">
@@ -47,7 +47,7 @@ const WhyJamiliCarptes: React.FC = () => {
                 <FaPalette size={40} className="text-blue-500 mr-3" />
                 <span className="font-semibold">3. Unique Designs:</span>
               </div>
-              <p className="pl-12">Our designs are unique and exclusive, blending traditional techniques with modern aesthetics.</p>
+              <p className="pl-12 text-xl text-gray-300">Our designs are unique and exclusive, blending traditional techniques with modern aesthetics.</p>
             </div>
 
             <div className="text-lg sm:text-xl md:text-2xl">
@@ -55,7 +55,7 @@ const WhyJamiliCarptes: React.FC = () => {
                 <FaRecycle size={40} className="text-green-500 mr-3" />
                 <span className="font-semibold">4. Sustainability:</span>
               </div>
-              <p className="pl-12">We use sustainable practices in our manufacturing process, ensuring minimal environmental impact.</p>
+              <p className="pl-12 text-xl text-gray-300">We use sustainable practices in our manufacturing process, ensuring minimal environmental impact.</p>
             </div>
           </div>
         </div>
