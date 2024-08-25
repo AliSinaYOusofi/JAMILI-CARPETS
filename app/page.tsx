@@ -1,6 +1,8 @@
 "use client"
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
+import ShopByCategories from "@/components/ShopByCategories";
 import WhyJamiliCarptes from "@/components/WhyJamiliCarptes";
 import { useNextContext } from "@/Context/appContext";
 import { getThemeStyles } from "@/Global/themesStyle";
@@ -66,10 +68,11 @@ export default function Home() {
       <ProudPart />
       <WhyJamiliCarptes />
 
+      <ShopByCategories />
+      
       <h1 className="text-3xl sm:text-4xl  lg:text-5xl font-bold text-center mb-8 mt-20">
         What Our Happy Customers Say
       </h1>
-
 
       <div className="flex flex-wrap max-w-7xl mx-auto flex-col md:flex-row lg:flex-row mt-20 gap-y-10">
         {
@@ -80,6 +83,8 @@ export default function Home() {
           })
         }
       </div>
+
+      <Footer />
     </div>
   );
 }
