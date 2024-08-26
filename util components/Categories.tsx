@@ -28,7 +28,7 @@ const Categories: React.FC<CategoriesProps> = ({ image, name, link }) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <Link href={link} className="block">
+                <Link href={`/collection/${name}`} className="block">
                     <Image
                         src={image}
                         alt={name}
