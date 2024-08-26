@@ -60,10 +60,10 @@ const Categories: React.FC<CategoriesProps> = ({ image, name, link }) => {
                     onClick={toggleQuickView}
                 ></div>
 
-                <div className="relative bg-white p-4 py-10 rounded-lg shadow-lg w-full max-w-7xl mx-4 sm:mx-auto overflow-y-auto max-h-[90vh]">
+                <div className="relative  p-4 py-10 rounded-lg shadow-lg w-full max-w-7xl mx-4 sm:mx-auto overflow-y-auto max-h-[90vh]">
                     <button
                         onClick={toggleQuickView}
-                        className="absolute top-2 right-2 text-gray-600 text-xl"
+                        className="absolute top-10 right-4 text-gray-600 text-xl"
                     >
                         <IoIosClose size={40} />
                     </button>
