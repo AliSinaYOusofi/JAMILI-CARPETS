@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
-import { FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaPinterest, FaWhatsapp } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
 export interface CarpetCategory {
     name: string;
@@ -117,16 +117,23 @@ const ProductOverview: React.FC<{ name: string }> = ({ name }) => {
 
                         <div className={`flex  mt-10 mb-10 sm:mb-0 sm:items-center sm:justify-center md:items-start md:justify-start lg:items-start lg:justify-start gap-x-10`}>
                 
-                                <Link href="" className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
+                                <Link href={`http://m.me/JamiliCarpet/?text=I%20Want%20To%20Buy%20${name}%20Carpet`} className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
                                     <FaFacebook size={30}/>
                                 </Link>
 
-                                <Link href="" className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
+                                <Link href={`https://wa.me/+93777697777?text=I%20Want%20To%20Buy%20${name}%20Carpet`} className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
                                     <FaWhatsapp size={30}/>
                                 </Link>
 
-                                <Link href="" className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
+                                <Link href="https://www.instagram.com/jamili_carpets" className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}>
                                     <PiInstagramLogoFill size={30}/>
+                                </Link>
+                                
+                                <Link 
+                                    href={`https://ph.pinterest.com/JamiliCarpets/`} 
+                                    className={`p-2 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ${themeClasses}`}
+                                >
+                                    <FaPinterest size={30}/>
                                 </Link>
                             </div>
 

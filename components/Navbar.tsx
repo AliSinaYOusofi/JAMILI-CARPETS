@@ -38,29 +38,29 @@ const Navbar: React.FC = () => {
                     {/* Nav Links */}
                     <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                         <li className="group">
-                            <a className={`relative  hover:${style.textColor}`} href="#">
+                            <a className={`relative  hover:${style.textColor}`} href="/">
                                 Home
                                 <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
                         </li>
                         <li className="group">
-                            <a className={`relative hover:${style.textColor}`} href="#">
-                                Category
-                                <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-                            </a>
-                        </li>
-                        <li className="group">
                             <a className={`relative hover:${style.textColor}`} href="/collection">
-                                Collections
+                                Categories
                                 <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                             </a>
                         </li>
                         <li className="group">
+                            <a className={`relative hover:${style.textColor}`} href="/favourites">
+                                Favourites
+                                <span className="block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                            </a>
+                        </li>
+                        {/* <li className="group">
                             <a className={`relative hover:${style.textColor}`} href="#">
                                 Contact Us
                                 <span className={"block h-0.5 w-0 bg-gray-400 group-hover:w-full transition-all duration-300 ease-in-out"}></span>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
 
                     {/* Header Icons */}
@@ -194,11 +194,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ open }) => {
             className="xl:hidden w-full gap-y-6 text-center text-3xl flex flex-col justify-center mb-10 divide-gray-400 items-center px-4 mx-auto font-semibold font-heading space-y-4"
         >
             {[
-            { href: '#', icon: FaHome, text: 'Home' },
-            { href: '#', icon: FaThLarge, text: 'Category' },
+            { href: '/', icon: FaHome, text: 'Home' },
+            { href: '/collection', icon: FaThLarge, text: 'Category' },
             { href: '/collections', icon: FaBoxes, text: 'Collections' },
-            { href: '#', icon: FaHeart, text: 'Favourites' },
-            { href: '#', icon: FaPhoneAlt, text: 'Contact Us' },
+            { href: '/favourites', icon: FaHeart, text: 'Favourites' },
+            // { href: '#', icon: FaPhoneAlt, text: 'Contact Us' },
             ].map(({ href, icon: Icon, text }, index) => (
             <li className="w-full mt-4" key={index}>
                 <a
