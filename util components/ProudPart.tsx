@@ -36,14 +36,14 @@ const ProudPart: React.FC = () => {
     const flexCenter = " flex flex-col md:flex-row lg:flex-rwo items-center justify-between"
     
     return (
-        <div className={`flex flex-row md:fle-col  md:px-20 py-10 items-center   justify-between ${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
+        <div className={`flex flex-col md:flex-col  md:px-20 py-10 items-center   justify-between ${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
             
-            <div className="flex items-center gap-x-4 font-bold">
-                <IoIosFlower className="text-5xl" size={50}/>
-                <h1 className="text-pretty text-bold md:text-5xl text-5xl"> We are proud of </h1>
+            <div className="flex  items-center gap-x-4 font-bold">
+                <IoIosFlower className="text-2xl md:text-5xl" size={50}/>
+                <h1 className="text-pretty text-bold md:text-5xl text-3xl"> We are proud of </h1>
             </div>
             
-            <div className={`${flexCenter}`}>
+            <div className={`${flexCenter} mt-10`}>
 
                 {
                     proudPartDetails.map( item => {

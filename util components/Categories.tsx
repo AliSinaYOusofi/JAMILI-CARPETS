@@ -68,7 +68,7 @@ const Categories: React.FC<CategoriesProps> = ({ image, name, link }) => {
                         <IoIosClose size={40} />
                     </button>
 
-                    <QuickViewOfProduct name={name} />
+                    <QuickViewOfProduct name={name} i />
                 </div>
             </div>
         )}
