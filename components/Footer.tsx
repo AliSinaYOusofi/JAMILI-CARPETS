@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
@@ -6,7 +7,14 @@ export default function Footer() {
         <footer className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
                 <div>
-                    <a className="flex-none text-xl font-semibold text-black focus:outline-none" href="#" aria-label="Brand">Logo Here</a>
+                    <a className="flex-none text-xl font-semibold text-black focus:outline-none" href="#" aria-label="Brand">
+                        <Image
+                            src="/images/logo jamili.png"
+                            alt="logo here"
+                            width={70}
+                            height={70}
+                        />
+                    </a>
                 </div>
 
                 <ul className="text-center">

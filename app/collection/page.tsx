@@ -1,4 +1,5 @@
 "use client"
+import Footer from '@/components/Footer'
 import ShopByCategories from '@/components/ShopByCategories'
 import { useNextContext } from '@/Context/appContext'
 import React, { useEffect } from 'react'
@@ -8,15 +9,6 @@ export default function page() {
 
     const { theme, setTheme } = useNextContext()
     
-    useEffect(() => {
-    
-        const savedTheme = localStorage.getItem("theme");
-        
-        if (savedTheme) {
-          setTheme(JSON.parse(savedTheme));
-        }
-        
-    }, []);
 
     return (
         <div className={`${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
@@ -35,6 +27,7 @@ export default function page() {
                 }}
             />
             <ShopByCategories text={true}/>
+            <Footer />
         </div>
     )
 }

@@ -11,68 +11,61 @@ import Testimonials from "@/util components/Testimonials";
 import Image from "next/image";
 import { useEffect } from "react";
 
-export const testimonials = [
+const testi = [
   {
-    comment: "This product is phenomenal! It has boosted our team's productivity significantly.",
+    comment: "This carpet is phenomenal! It has transformed the look and feel of our living room significantly.",
     image: "https://img.freepik.com/free-psd/3d-illustration-business-man-with-glasses_23-2149436194.jpg?size=626&ext=jpg",
     name: "Alice Johnson",
-    role: "Team Lead",
+    role: "Homeowner",
     rating: 5,
   },
   {
-    comment: "Great customer support and reliable service. I highly recommend this company.",
+    comment: "Great customer support and reliable service. I highly recommend this carpet company.",
     image: "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833554.jpg?size=626&ext=jpg",
     name: "Michael Davis",
-    role: "Project Manager",
+    role: "Interior Designer",
     rating: 4.5,
   },
   {
-    comment: "Using this service has been a game-changer for our business. Worth every penny!",
+    comment: "Using this carpet has been a game-changer for our hotel. Worth every penny!",
     image: "https://img.freepik.com/free-psd/3d-illustration-person-with-glasses_23-2149436191.jpg?size=626&ext=jpg",
     name: "Sara Wilson",
-    role: "Business Analyst",
+    role: "Hotel Manager",
     rating: 5,
   },
   {
-    comment: "The features are exactly what I was looking for. The interface is intuitive and easy to use.",
+    comment: "The carpet styles are exactly what I was looking for. The texture is soft and easy to clean.",
     image: "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg?size=626&ext=jpg",
     name: "James Smith",
-    role: "Product Designer",
+    role: "Homeowner",
     rating: 4,
   },
-
   {
-    comment: "I love how responsive the team is. They really listen to feedback and make improvements.",
+    comment: "I love how responsive the team is. They really listen to feedback and offer great carpet care advice.",
     image: "https://img.freepik.com/free-psd/3d-illustration-with-online-avatar_23-2151303097.jpg?size=626&ext=jpg",
     name: "Emily Brown",
-    role: "UX Researcher",
+    role: "Real Estate Agent",
     rating: 4.5,
   },
-  
   {
-    comment: "This tool has helped streamline our workflows and improved efficiency across the board.",
+    comment: "This carpet has helped reduce noise in our office and improved the overall ambiance.",
     image: "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg",
     name: "David Lee",
-    role: "Operations Manager",
+    role: "Office Manager",
     rating: 5,
   },
 ];
+
+
 import toast, { Toaster } from 'react-hot-toast';
+
 export default function Home() {
+
   const { theme, setTheme } = useNextContext()
   const style = getThemeStyles()
 
   // fetch the current theme from localStorage
-  useEffect(() => {
-    
-    const savedTheme = localStorage.getItem("theme");
-    
-    if (savedTheme) {
-      setTheme(JSON.parse(savedTheme));
-    }
 
-  }, []);
-  
   return (
     <div className={`${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
       <Toaster 
@@ -94,7 +87,7 @@ export default function Home() {
       <ProudPart />
       <WhyJamiliCarptes />
 
-      <ShopByCategories />
+      <ShopByCategories text={false}/>
       
       <h1 className="text-3xl sm:text-4xl  lg:text-5xl font-bold text-center mb-8 mt-20">
         What Our Happy Customers Say
@@ -102,7 +95,7 @@ export default function Home() {
 
       <div className="flex flex-wrap max-w-7xl mx-auto flex-col md:flex-row lg:flex-row mt-20 gap-y-10">
         {
-          testimonials.map((item, index) => {
+          testi.map((item, index) => {
             return (
               <Testimonials key={index} {...item} />
             )

@@ -4,7 +4,7 @@ import { useSpring, animated } from "@react-spring/web";
 import Hamburger from "hamburger-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome, FaThLarge, FaBoxes, FaPhoneAlt, FaHeart } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
@@ -16,9 +16,22 @@ const Navbar: React.FC = () => {
     const toggleTheme = () => {
         // instead save it the current theme to localStorage
         localStorage.setItem("theme", JSON.stringify(!theme));
-        setTheme(prev => !prev);
+        
+        const currentTheme: string | null = localStorage.getItem("theme")
+        
+        setTheme(prev => ! prev)
     };
     
+
+    useEffect( () => {
+        const currentTheme : string | null = localStorage.getItem('theme')
+        if(currentTheme){
+            setTheme(JSON.parse(currentTheme))
+        } else {
+            localStorage.setItem('theme', JSON.stringify(theme))
+
+        }
+    }, [])
 
     return (
         <div className="flex flex-wrap ">

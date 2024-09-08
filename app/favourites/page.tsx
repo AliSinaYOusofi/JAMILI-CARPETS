@@ -1,5 +1,6 @@
 "use client"
 import { carpetCategories, CarpetCategory } from "@/carpet categories/carpetCategories"
+import Footer from "@/components/Footer"
 import { useNextContext } from "@/Context/appContext"
 import Categories from "@/util components/Categories"
 import { useEffect, useState } from "react"
@@ -57,7 +58,7 @@ export default function page () {
     }
     
     return (
-        <>
+        <div className={`${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
 
             <Toaster 
                 toastOptions={{
@@ -73,7 +74,7 @@ export default function page () {
                 }
                 }}
             />
-            <div className="flex mt-20 mx-auto max-w-7xl gap-x-10 gap-y-10 justify-center items-center flex-wrap">
+            <div className="flex  mx-auto max-w-7xl gap-x-10 gap-y-10 justify-center items-center flex-wrap">
                 {
                     favourites?.length ?
                     favourites.map( ( item, index ) => {
@@ -91,6 +92,7 @@ export default function page () {
                     </div>
                 }
             </div>
-        </>
+            <Footer />
+        </div>
     )
 }
