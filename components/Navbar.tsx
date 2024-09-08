@@ -14,6 +14,8 @@ const Navbar: React.FC = () => {
     const style = getThemeStyles()
     
     const toggleTheme = () => {
+        // instead save it the current theme to localStorage
+        localStorage.setItem("theme", JSON.stringify(!theme));
         setTheme(prev => !prev);
     };
     

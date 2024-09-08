@@ -10,7 +10,7 @@ export default function ShopByCategories({text} : {text: boolean}) {
             {
                 text
                 ?
-                <h1 className="text-3xl sm:text-4xl  lg:text-5xl font-bold text-center mb-8  mt-32">
+                <h1 className="text-3xl sm:text-4xl  lg:text-5xl font-bold text-center mb-8  ">
                     Shop By <span className="text-orange-500"> Categories </span>
                 </h1>
                 :

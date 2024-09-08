@@ -9,6 +9,7 @@ import { getThemeStyles } from "@/Global/themesStyle";
 import ProudPart from "@/util components/ProudPart";
 import Testimonials from "@/util components/Testimonials";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export const testimonials = [
   {
@@ -58,9 +59,20 @@ export const testimonials = [
 ];
 import toast, { Toaster } from 'react-hot-toast';
 export default function Home() {
-  const { theme } = useNextContext()
+  const { theme, setTheme } = useNextContext()
   const style = getThemeStyles()
 
+  // fetch the current theme from localStorage
+  useEffect(() => {
+    
+    const savedTheme = localStorage.getItem("theme");
+    
+    if (savedTheme) {
+      setTheme(JSON.parse(savedTheme));
+    }
+
+  }, []);
+  
   return (
     <div className={`${theme ? "bg-gray-100" : "bg-gray-900"} ${!theme ? "text-white" : "text-black"}`}>
       <Toaster 

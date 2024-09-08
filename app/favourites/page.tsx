@@ -9,7 +9,7 @@ export default function page () {
 
     const [favourites, setFavourites] = useState<CarpetCategory[] | null>()
     const {theme} = useNextContext()
-    
+
     useEffect ( () => {
         const fetchFavourites = () => {
             
@@ -30,7 +30,7 @@ export default function page () {
         }
 
         fetchFavourites()
-    }, [])
+    }, [favourites])
 
     if ( ! favourites) {
         <div className="flex items-center justify-center min-h-screen ">
