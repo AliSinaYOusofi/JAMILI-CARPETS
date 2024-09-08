@@ -36,21 +36,23 @@ const QuickViewOfProduct: React.FC<{ name: string }> = ({ name }) => {
 
     const addToFavorites = () : void => {
         
-        const storedFavorites = localStorage.getItem('favorites');
+        // const storedFavorites = localStorage.getItem('favorites');
 
-        const favorites: string[] = storedFavorites ? JSON.parse(storedFavorites) : [];
+        // const favorites: string[] = storedFavorites ? JSON.parse(storedFavorites) : [];
 
         
-        if (!favorites.includes(name)) {
-            favorites.push(name);
+        // if (!favorites.includes(name)) {
+        //     favorites.push(name);
 
             
-            localStorage.setItem('favorites', JSON.stringify(favorites));
+        //     localStorage.setItem('favorites', JSON.stringify(favorites));
 
-            toast.success("Added to your favourites")
-        } else {
-            toast.error("Already in your favourites")
-        }
+        //     toast.success("Added to your favourites")
+        // } else {
+        //     // remove from favourites
+        //     favorites.splice(favorites.indexOf(name), 1);
+        //     toast.error("Already in your favourites")
+        // }
     };
 
     return (
@@ -140,7 +142,7 @@ const QuickViewOfProduct: React.FC<{ name: string }> = ({ name }) => {
 
                         <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
                         
-                        <button
+                        {/* <button
                             title="Add to favorites"
                             className={`flex items-center justify-center py-2.5 px-5 text-sm font-medium focus:outline-none rounded-lg border hover:bg-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700`
                             }
@@ -165,7 +167,7 @@ const QuickViewOfProduct: React.FC<{ name: string }> = ({ name }) => {
                             />
                             </svg>
                             Add to favorites
-                        </button>
+                        </button> */}
 
                         {/* <a
                             href="#"
