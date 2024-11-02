@@ -1,5 +1,6 @@
 "use client";
 import { carpetCategories } from "@/carpet categories/carpetCategories";
+import Footer from "@/components/Footer";
 import ProductOverview from "@/components/ProductOverview";
 import QuickViewOfProduct from "@/components/QuickViewofProduct";
 import ShopByCategories from "@/components/ShopByCategories";
@@ -76,7 +77,8 @@ export default function Page({ params }: { params: { name: string } }) {
             </div>
 
             <ProductOverview name={params.name}/>
-            <ShopByCategories />
+            <ShopByCategories text={false}/>
+            <Footer />
         </>
     );
 }

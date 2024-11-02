@@ -25,7 +25,7 @@ export default function ShopByCategories({text} : {text: boolean}) {
                 {
                     carpetCategories.map( ( item, index ) => {
                         return (
-                            <div>
+                            <div key={`${item.name}-${index}`}>
                                 <Categories link={item.name} name={item.name} image={item.images[0]}/>
                             </div>
                         )

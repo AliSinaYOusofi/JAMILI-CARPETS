@@ -86,7 +86,7 @@ export default function page () {
                         )
                     })
                     :
-                    <div>
+                    <div className="flex flex-col items-center justify-center min-h-screen">
                         <h1> No Favourites Found </h1>
                         <p> Start adding some favourites by clicking on the heart icon on the product page.</p>
                     </div>

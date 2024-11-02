@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
 
                     {/* Header Icons */}
                     <div className="hidden xl:flex items-center space-x-5">
-                        <a className="hover:text-gray-200" href="#">
+                        <a className="hover:text-gray-200" href="/favourites">
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -220,8 +220,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ open }) => {
                 className={`flex rounded-full group items-center justify-center gap-2 py-2 w-full ${style.hoverOnNavItemsMobile}`}
                 href={href}
                 >
-                <Icon className={iconHover} />
-                {text}
+                    <Icon className={iconHover} />
+                    {text}
                 </a>
             </li>
             ))}
